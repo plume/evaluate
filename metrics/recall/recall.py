@@ -132,4 +132,4 @@ class Recall(evaluate.Metric):
             sample_weight=sample_weight,
             zero_division=zero_division,
         )
-        return {"recall": float(score) if score.size == 1 else score}
+        return {"recall": score if isinstance(score, float) else float(score)}
